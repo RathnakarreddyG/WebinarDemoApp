@@ -23,6 +23,20 @@ stages:
 - stage: Build
   displayName: Build and push stage
   jobs:
+  - job: BuildJAR
+    displayName: Build Jar
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+      - task: Maven@4
+        inputs:
+          mavenPomFile: 'pom.xml'
+          publishJUnitResults: false
+          javaHomeOption: 'JDKVersion'
+          mavenVersionOption: 'Default'
+          mavenAuthenticateFeed: false
+          effectivePomSkip: false
+          sonarQubeRunAnalysis: false
   - job: Build
     displayName: Build
     pool:
