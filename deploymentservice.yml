@@ -28,7 +28,10 @@ metadata:
   name: webinar-service-svc
 spec:
   ports:
-    - targetPort: 2222
+    - name: http
+      protocol: TCP
+      targetPort: 2222
       port: 80
+  type: LoadBalancer
   selector:
     app: webinar-service-app
