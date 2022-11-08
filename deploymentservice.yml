@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: webinar-service-app
-          image: rg299299/webinar
+          image: webinarpronixacr.azurecr.io/rathnakarreddyg/webinardemoapp:#{Build.BuildId}#
           imagePullPolicy: Always
           ports:
             - containerPort: 2222
